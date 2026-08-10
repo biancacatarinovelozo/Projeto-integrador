@@ -636,8 +636,6 @@ a,
 @media (max-width: 576px) {
 
 
-
-
    body {
 
 
@@ -697,7 +695,7 @@ a,
 
 
 
-::selection {
+:selection {
 
 
    background: #0d6efd;
