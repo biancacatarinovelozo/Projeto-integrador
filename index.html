@@ -1,550 +1,422 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Portal Inclusivo de Estudos</title>
 
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-   <title>Portal Inclusivo</title>
-
-
-   <!-- Bootstrap -->
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-
-   <!-- CSS -->
-   <link rel="stylesheet" href="./style.css">
-
-
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
 </head>
-
 
 <body>
 
-
-   <!-- CABEÇALHO -->
-
-
-   <header>
-
-
+    <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-
 
         <div class="container">
 
+            <a class="navbar-brand fw-bold" href="#">
+                Portal Inclusivo
+            </a>
+
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#menuPrincipal"
+                aria-controls="menuPrincipal"
+                aria-expanded="false"
+                aria-label="Abrir menu">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <div class="collapse navbar-collapse" id="menuPrincipal">
+
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inicio">Início</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#robotica">Robótica</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#fisica">
+                            Física e Tecnociências
+                        </a>
+                    </li>
 
-               <a class="navbar-brand fw-bold" href="#">
-                   Portal Inclusivo
-               </a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#atividades">
+                            Atividades
+                        </a>
+                    </li>
 
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contato">
+                            Contato
+                        </a>
+                    </li>
 
-               <button
-                   class="navbar-toggler"
-                   type="button"
-                   data-bs-toggle="collapse"
-                   data-bs-target="#menuPrincipal"
-                   aria-controls="menuPrincipal"
-                   aria-expanded="false"
-                   aria-label="Abrir menu">
-    <span class="navbar-toggler-icon"></span>
+                    <li>
+                        <hr class="text-white">
+                    </li>
 
+                    <!-- BOTÕES DE ACESSIBILIDADE -->
 
-               </button>
+                    <li class="nav-item">
+                        <button
+                            class="btn btn-success w-100 my-1"
+                            onclick="aumentarFonte()">
+                            Aumentar Fonte (A+)
+                        </button>
+                    </li>
 
+                    <li class="nav-item">
+                        <button
+                            class="btn btn-warning w-100 my-1"
+                            onclick="diminuirFonte()">
+                            Diminuir Fonte (A-)
+                        </button>
+                    </li>
 
-               <div class="collapse navbar-collapse" id="menuPrincipal">
+                    <li class="nav-item">
+                        <button
+                            class="btn btn-dark w-100 my-1"
+                            onclick="altoContraste()">
+                            Alto Contraste
+                        </button>
+                    </li>
 
+                    <li class="nav-item">
+                        <button
+                            class="btn btn-info text-white w-100 my-1"
+                            onclick="lerPagina()">
+                            🔊 Ouvir Página
+                        </button>
+                    </li>
 
-                   <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <button
+                            class="btn btn-danger w-100 my-1"
+                            onclick="pararLeitura()">
+                            ⏹ Parar Leitura
+                        </button>
+                    </li>
 
+                </ul>
 
-                       <li class="nav-item">
-                           <a class="nav-link" href="#inicio">Início</a>
-                       </li>
+            </div>
 
+        </div>
 
-                       <li class="nav-item">
-                           <a class="nav-link" href="#robotica">Robótica</a>
-                       </li>
+    </nav>
 
 
-                       <li class="nav-item">
-                           <a class="nav-link" href="#fisica">Física e Tecnociências</a>
-                       </li>
+    <!-- INÍCIO -->
 
+    <section id="inicio" class="container mt-5">
 
-                       <li class="nav-item">
-                           <a class="nav-link" href="#atividades">Atividades</a>
-                       </li>
+        <h1 class="text-center">
+            Portal Inclusivo de Estudos
+        </h1>
 
+        <p class="lead text-center">
 
-                       <li class="nav-item">
-                           <a class="nav-link" href="#contato">Contato</a>
-                       </li>
+            Este portal foi desenvolvido para promover a acessibilidade
+            digital para pessoas com baixa visão ou cegueira.
 
+            O site possui recursos de aumento de fonte, alto contraste
+            e leitura automática do conteúdo, tornando o aprendizado
+            mais inclusivo.
 
-                       <li>
-                           <hr class="text-white">
-                       </li>
+        </p>
 
+        <img
+            src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=900"
+            class="img-fluid rounded shadow mt-3"
+            alt="Estudantes utilizando computadores durante uma aula de tecnologia."
+            loading="lazy">
 
-                       <!-- BOTÕES -->
+    </section>
 
 
-                       <li class="nav-item">
-                           <button class="btn btn-success w-100 my-1"
- onclick="aumentarFonte()">
-                               Aumentar Fonte (A+)
-                           </button>
-                       </li>
+    <!-- ROBÓTICA -->
 
+    <section id="robotica" class="container mt-5">
 
-                       <li class="nav-item">
-                           <button class="btn btn-warning w-100 my-1"
-                               onclick="diminuirFonte()">
-                               Diminuir Fonte (A-)
-                           </button>
-                       </li>
+        <h2 class="text-center mb-4">
+            Robótica
+        </h2>
 
+        <div class="row">
 
-                       <li class="nav-item">
-                           <button class="btn btn-dark w-100 my-1"
-                               onclick="altoContraste()">
-                               Alto Contraste
-                           </button>
-                       </li>
+            <article class="col-md-4 mb-4">
 
+                <div class="card h-100">
 
-                       <li class="nav-item">
-                           <button class="btn btn-info text-white w-100 my-1"
-                               onclick="lerPagina()">
-                               🔊 Ouvir Página
-                           </button>
-                       </li>
+                    <div class="card-body">
 
+                        <h3>Sensores</h3>
 
-                       <li class="nav-item">
-                           <button class="btn btn-danger w-100 my-1"
-                               onclick="pararLeitura()">
-                               ⏹ Parar Leitura
-                           </button>
-                       </li>
+                        <p>
+                            Os sensores permitem que um robô identifique
+                            obstáculos, luz, temperatura e distância.
+                        </p>
 
+                    </div>
 
-                   </ul>
+                </div>
 
+            </article>
 
-               </div>
 
+            <article class="col-md-4 mb-4">
 
-           </div>
+                <div class="card h-100">
 
+                    <div class="card-body">
 
-       </nav>
+                        <h3> Motores</h3>
 
+                        <p>
+                            Os motores transformam energia elétrica em
+                            movimento para que o robô execute tarefas.
+                        </p>
 
-   </header>
-   <!-- CONTEÚDO -->
+                    </div>
 
+                </div>
 
-   <main>
+            </article>
 
 
-       <!-- INÍCIO -->
+            <article class="col-md-4 mb-4">
 
+                <div class="card h-100">
 
-       <section id="inicio" class="container mt-5">
+                    <div class="card-body">
 
+                        <h3>Arduino</h3>
 
-           <h1 class="text-center">
-               Portal Inclusivo de Estudos
-           </h1>
+                        <p>
+                            O Arduino é uma plataforma utilizada para
+                            programar e controlar projetos de robótica.
+                        </p>
 
+                    </div>
 
-           <p class="lead text-center">
+                </div>
 
+            </article>
 
-               Este portal foi desenvolvido para promover a acessibilidade digital
-               para pessoas com baixa visão ou cegueira.
+        </div>
 
+    </section>
 
-               O site possui recursos de aumento de fonte, alto contraste e leitura
-               automática do conteúdo, tornando o aprendizado mais inclusivo.
 
+    <!-- FÍSICA E TECNOCIÊNCIAS -->
 
-           </p>
+    <section id="fisica" class="container mt-5">
 
+        <h2 class="text-center mb-4">
+            Física e Tecnociências
+        </h2>
 
-           <img
-               src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=900"
-               class="img-fluid rounded shadow mt-3"
-               alt="Estudantes utilizando computadores durante uma aula de tecnologia."
-               loading="lazy">
+        <div class="row">
 
+            <article class="col-md-4 mb-4">
 
-       </section>
+                <div class="card h-100">
 
+                    <div class="card-body">
 
-       <!-- ROBÓTICA -->
+                        <h3>Energia</h3>
 
+                        <p>
+                            A energia está presente em diversas tecnologias
+                            utilizadas no dia a dia.
+                        </p>
 
-       <section id="robotica" class="container mt-5">
+                    </div>
 
+                </div>
 
-           <h2 class="text-center mb-4">
-               Robótica
-</h2>
+            </article>
 
 
-           <div class="row">
+            <article class="col-md-4 mb-4">
 
+                <div class="card h-100">
 
-               <article class="col-md-4 mb-4">
+                    <div class="card-body">
 
+                        <h3>Eletricidade</h3>
 
-                   <div class="card h-100">
+                        <p>
+                            Estudo da corrente elétrica, tensão e
+                            funcionamento de circuitos elétricos.
+                        </p>
 
+                    </div>
 
-                       <div class="card-body">
+                </div>
 
+            </article>
 
-                           <h3>Sensores</h3>
 
+            <article class="col-md-4 mb-4">
 
-                           <p>
-                               Os sensores permitem que um robô identifique obstáculos,
-                               luz, temperatura e distância.
-                           </p>
+                <div class="card h-100">
 
+                    <div class="card-body">
 
-                       </div>
+                        <h3>Magnetismo</h3>
 
+                        <p>
+                            Conheça os campos magnéticos e suas aplicações
+                            em equipamentos tecnológicos.
+                        </p>
 
-                   </div>
+                    </div>
 
+                </div>
 
-               </article>
+            </article>
 
+        </div>
 
-               <article class="col-md-4 mb-4">
+    </section>
 
 
-                   <div class="card h-100">
-
-
-                       <div class="card-body">
-
-
-                           <h3>Motores</h3>
-
-
-                           <p>
-                               Os motores transformam energia elétrica em movimento
-                               para que o robô execute tarefas.
-                           </p>
-
-
-                       </div>
-
-
-                   </div>
-
-
-               </article>
-<article class="col-md-4 mb-4">
-
-
-                   <div class="card h-100">
-
-
-                       <div class="card-body">
-
-
-                           <h3>Arduino</h3>
-
-
-                           <p>
-                               O Arduino é uma plataforma utilizada para programar e
-                               controlar projetos de robótica.
-                           </p>
-
-
-                       </div>
-
-
-                   </div>
-
-
-               </article>
-
-
-           </div>
-
-
-       </section>
-
-
-       <!-- FÍSICA -->
-
-
-       <section id="fisica" class="container mt-5">
-
-
-           <h2 class="text-center mb-4">
-
-
-               Física e Tecnociências
-
-
-           </h2>
-
-
-           <div class="row">
-
-
-               <article class="col-md-4 mb-4">
-
-
-                   <div class="card h-100">
-
-
-                       <div class="card-body">
-
-
- <h3>Energia</h3>
-
-
-                           <p>
-                               A energia está presente em diversas tecnologias utilizadas
-                               no dia a dia.
-                           </p>
-
-
-                       </div>
-
-
-                   </div>
-
-
-               </article>
-
-
-               <article class="col-md-4 mb-4">
-
-
-                   <div class="card h-100">
-
-
-                       <div class="card-body">
-
-
-                           <h3>Eletricidade</h3>
-
-
-                           <p>
-                               Estudo da corrente elétrica, tensão e funcionamento de
-                               circuitos elétricos.
-                           </p>
-
-
-                       </div>
-
-
-                   </div>
-
-
-               </article>
-
-
-               <article class="col-md-4 mb-4">
-
-
-                   <div class="card h-100">
-
-
-                       <div class="card-body">
-
-
-                           <h3>Magnetismo</h3>
-
-
-                           <p>
-Conheça os campos magnéticos e suas aplicações em
-                               equipamentos tecnológicos.
-                           </p>
-
-
-                       </div>
-
-
-                   </div>
-
-
-               </article>
-
-
-           </div>
-
-
-       </section>
-
-
-       <!-- FLASHCARDS -->
-
+    <!-- FLASHCARDS -->
 
     <section id="atividades" class="container mt-5">
 
+        <h2 class="text-center mb-4">
+            Flashcards de Estudo
+        </h2>
 
-           <h2 class="text-center mb-4">
-               Flashcards de Estudo
-           </h2>
+        <div class="row">
 
+            <article class="col-lg-3 col-md-6 mb-4">
 
-<div class="row">
+                <div class="card h-100">
 
+                    <div class="card-body">
 
-               <article class="col-lg-3 col-md-6 mb-4">
+                        <h3>Flashcard 1</h3>
 
+                        <p>
+                            O que é um sensor?
+                        </p>
 
-                   <div class="card h-100">
+                    </div>
 
+                </div>
 
-                       <div class="card-body">
+            </article>
 
 
-                           <h3>Flashcard 1</h3>
+            <article class="col-lg-3 col-md-6 mb-4">
 
+                <div class="card h-100">
 
-                           <p>O que é um sensor?</p>
+                    <div class="card-body">
 
+                        <h3>Flashcard 2</h3>
 
-                       </div>
+                        <p>
+                            O que é energia elétrica?
+                        </p>
 
+                    </div>
 
-                   </div>
+                </div>
 
+            </article>
 
-               </article>
 
+            <article class="col-lg-3 col-md-6 mb-4">
 
-               <article class="col-lg-3 col-md-6 mb-4">
+                <div class="card h-100">
 
+                    <div class="card-body">
 
-  <div class="card h-100">
+                        <h3>Flashcard 3</h3>
 
+                        <p>
+                            Para que serve o Arduino?
+                        </p>
 
-                       <div class="card-body">
+                    </div>
 
+                </div>
 
-                           <h3>Flashcard 2</h3>
+            </article>
 
 
-                           <p>O que é energia elétrica?</p>
+            <article class="col-lg-3 col-md-6 mb-4">
 
+                <div class="card h-100">
 
-                       </div>
+                    <div class="card-body">
 
+                        <h3>Flashcard 4</h3>
 
-                   </div>
+                        <p>
+                            Como funciona um motor elétrico?
+                        </p>
 
+                    </div>
 
-               </article>
+                </div>
 
+            </article>
 
-               <article class="col-lg-3 col-md-6 mb-4">
+        </div>
 
+    </section>
 
-                   <div class="card h-100">
 
+    <!-- CONTATO -->
 
-                       <div class="card-body">
+    <section id="contato" class="container mt-5 mb-5">
 
+        <h2>Contato</h2>
 
-                           <h3>Flashcard 3</h3>
+        <p>
+            Email: portalinclusivo@email.com
+        </p>
 
+        <p>
+            Projeto Integrador - Desenvolvimento de Site Acessível
+        </p>
 
-                           <p>Para que serve o Arduino?</p>
+        <p>
+            &copy; 2026 Portal Inclusivo
+        </p>
 
+    </section>
 
-                       </div>
 
+    <!-- BOOTSTRAP JS -->
 
-                   </div>
-
-
-               </article>
-
-
-               <article class="col-lg-3 col-md-6 mb-4">
-
-
-                   <div class="card h-100">
-
-
-                       <div class="card-body">
-
-
-                           <h3>Flashcard 4</h3>
-
-
-                           <p>Como funciona um motor elétrico?</p>
-
-
-                       </div>
-
-
-                   </div>
-    </article>
-
-
-           </div>
-
-
-       </section>
-
-
-   </main>
-
-
-   <!-- RODAPÉ -->
-
-
-   <footer id="contato" class="bg-primary text-white text-center p-4 mt-5">
-
-
-       <h3>Contato</h3>
-
-
-       <p>Email: portalinclusivo@email.com</p>
-
-
-       <p>Projeto Integrador - Desenvolvimento de Site Acessível</p>
-
-
-       <p>&copy; 2026 Portal Inclusivo</p>
-
-
-   </footer>
-
-
-   <!-- Bootstrap -->
-
-
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-
-   <!-- JavaScript -->
-
-
-   <script defer src="./script.js"></script>
-
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
 
 </body>
 
-
 </html>
+```
