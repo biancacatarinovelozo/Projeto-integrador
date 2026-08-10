@@ -1,630 +1,258 @@
+```javascript
 // ========================================
 // PORTAL INCLUSIVO
 // script.js
 // ========================================
 
-
 "use strict";
 
 
-// -------------------------------
+// ========================================
 // TAMANHO DA FONTE
-// -------------------------------
-
+// ========================================
 
 let tamanhoFonte = 100;
 
 
-
-
-// -------------------------------
+// ========================================
 // AUMENTAR FONTE
-// -------------------------------
-
+// ========================================
 
 function aumentarFonte() {
 
+    if (tamanhoFonte < 160) {
 
-   if (tamanhoFonte < 160) {
+        tamanhoFonte += 10;
 
-
-       tamanhoFonte += 10;
-
-
-       document.documentElement.style.fontSize = tamanhoFonte + "%";
-
-
-   }
-
-
+        document.documentElement.style.fontSize =
+            tamanhoFonte + "%";
+    }
 }
 
 
-
-
-// -------------------------------
+// ========================================
 // DIMINUIR FONTE
-// -------------------------------
-
+// ========================================
 
 function diminuirFonte() {
 
+    if (tamanhoFonte > 70) {
 
-   if (tamanhoFonte > 70) {
+        tamanhoFonte -= 10;
 
-
-       tamanhoFonte -= 10;
-
-
-       document.documentElement.style.fontSize = tamanhoFonte + "%";
-  }
-
-
+        document.documentElement.style.fontSize =
+            tamanhoFonte + "%";
+    }
 }
-// -------------------------------
-// LEITOR DE TELA
-// -------------------------------
 
+
+// ========================================
+// LEITOR DE TELA
+// ========================================
 
 const sintetizador = window.speechSynthesis;
+
 let falaAtual = null;
 
 
-
-
-// -------------------------------
+// ========================================
 // LER PÁGINA
-// -------------------------------
-
+// ========================================
 
 function lerPagina() {
 
+    // Para qualquer leitura anterior
+    sintetizador.cancel();
 
-   sintetizador.cancel();
+    const conteudo = document.querySelector("main");
 
+    if (!conteudo) {
+        return;
+    }
 
-   const conteudo = document.querySelector("main");
+    const texto = conteudo.innerText.trim();
 
+    if (!texto) {
+        return;
+    }
 
-   if (!conteudo) return;
+    falaAtual = new SpeechSynthesisUtterance(texto);
 
+    falaAtual.lang = "pt-BR";
+    falaAtual.rate = 0.9;
+    falaAtual.pitch = 1;
+    falaAtual.volume = 1;
 
-   const texto = conteudo.innerText;
-
-
-   falaAtual = new SpeechSynthesisUtterance(texto);
-
-
-   falaAtual.lang = "pt-BR";
-   falaAtual.rate = 1;
-   falaAtual.pitch = 1;
-   falaAtual.volume = 1;
-
-
-   sintetizador.speak(falaAtual);
-
-
+    sintetizador.speak(falaAtual);
 }
 
 
-
-
-// -------------------------------
+// ========================================
 // PARAR LEITURA
-// -------------------------------
-
+// ========================================
 
 function pararLeitura() {
- sintetizador.cancel();
 
+    sintetizador.cancel();
 
+    falaAtual = null;
 }
 
 
-// -------------------------------
+// ========================================
 // ALTO CONTRASTE
-// -------------------------------
-
+// ========================================
 
 function altoContraste() {
 
-
-   document.body.classList.toggle("altoContraste");
-
-
+    document.body.classList.toggle("alto-contraste");
 }
 
 
-// -------------------------------
-// LER PÁGINA
-// -------------------------------
-
-
-function lerPagina() {
-
-
-   sintetizador.cancel();
-
-
-   const conteudo = document.querySelector("main");
-
-
-   if (!conteudo) return;
-
-
-   const texto = conteudo.innerText;
-
-
-   falaAtual = new SpeechSynthesisUtterance(texto);
-
-
-   falaAtual.lang = "pt-BR";
-   falaAtual.rate = 1;
-   falaAtual.pitch = 1;
-   falaAtual.volume = 1;
-
-
-   sintetizador.speak(falaAtual);
-
-
-}
-
-
-// -------------------------------
-// PARAR LEITURA
-// -------------------------------
-
-
-function pararLeitura() {
-
-
-   sintetizador.cancel();
-
-
-}
 // ========================================
-// FECHAR MENU AO CLICAR (CELULAR)
+// FECHAR MENU AO CLICAR
+// CELULAR
 // ========================================
 
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
 
-document.addEventListener("DOMContentLoaded", function () {
+        const links =
+            document.querySelectorAll(".nav-link");
 
+        const menu =
+            document.getElementById("menuPrincipal");
 
-   const links = document.querySelectorAll(".nav-link");
-   const menu = document.getElementById("menuPrincipal");
+        links.forEach(
+            function (link) {
 
+                link.addEventListener(
+                    "click",
+                    function () {
 
-   links.forEach(function (link) {
+                        if (
+                            menu &&
+                            menu.classList.contains("show")
+                        ) {
 
+                            const bsCollapse =
+                                bootstrap.Collapse.getInstance(menu)
+                                ||
+                                new bootstrap.Collapse(
+                                    menu,
+                                    {
+                                        toggle: false
+                                    }
+                                );
 
-       link.addEventListener("click", function () {
-
-
-           if (menu && menu.classList.contains("show")) {
-
-
-               const bsCollapse = bootstrap.Collapse.getInstance(menu)
-                   || new bootstrap.Collapse(menu, {
-                       toggle: false
-                   });
-
-
-               bsCollapse.hide();
-
-
-           }
-
-
-       });
-
-
-   });
-
-
-});
+                            bsCollapse.hide();
+                        }
+                    }
+                );
+            }
+        );
+    }
+);
 
 
 // ========================================
 // MENSAGEM DE BOAS-VINDAS
 // ========================================
 
+window.addEventListener(
+    "load",
+    function () {
 
-window.addEventListener("load", function () {
-
-
-   console.log("Portal Inclusivo carregado com sucesso.");
-
-
-});
+        console.log(
+            "Portal Inclusivo carregado com sucesso."
+        );
+    }
+);
 
 
 // ========================================
 // ATALHOS DO TECLADO
 // ========================================
 
+document.addEventListener(
+    "keydown",
+    function (e) {
 
-document.addEventListener("keydown", function (e) {
+        // -------------------------------
+        // ALT + =
+        // AUMENTAR FONTE
+        // -------------------------------
 
+        if (
+            e.altKey &&
+            (e.key === "+" || e.key === "=")
+        ) {
 
-   // ALT + =
-   // (em muitos teclados o "+" é ALT + =)
+            e.preventDefault();
 
+            aumentarFonte();
+        }
 
-   if (e.altKey && (e.key === "+" || e.key === "=")) {
 
+        // -------------------------------
+        // ALT + -
+        // DIMINUIR FONTE
+        // -------------------------------
 
-       e.preventDefault();
-       aumentarFonte();
+        if (
+            e.altKey &&
+            e.key === "-"
+        ) {
 
+            e.preventDefault();
 
-   }
+            diminuirFonte();
+        }
 
 
-   // ALT + -
+        // -------------------------------
+        // ALT + C
+        // ALTO CONTRASTE
+        // -------------------------------
 
+        if (
+            e.altKey &&
+            e.key.toLowerCase() === "c"
+        ) {
 
-   if (e.altKey && e.key === "-") {
+            e.preventDefault();
 
+            altoContraste();
+        }
 
-       e.preventDefault();
-       diminuirFonte();
 
+        // -------------------------------
+        // ALT + L
+        // LER PÁGINA
+        // -------------------------------
 
-   }
+        if (
+            e.altKey &&
+            e.key.toLowerCase() === "l"
+        ) {
 
+            e.preventDefault();
 
-   // ALT + C
+            lerPagina();
+        }
 
 
-   if (e.altKey && e.key.toLowerCase() === "c") {
+        // -------------------------------
+        // ESC
+        // PARAR LEITURA
+        // -------------------------------
 
+        if (e.key === "Escape") {
 
-       e.preventDefault();
-       altoContraste();
+            pararLeitura();
+        }
 
-
-   }
-
-
-   // ALT + L
-
-
-   if (e.altKey && e.key.toLowerCase() === "l") {
-
-
-       e.preventDefault();
-       lerPagina();
-   }
-
-
-   // ESC
-
-
-   if (e.key === "Escape") {
-
-
-       pararLeitura();
-
-
-   }
-
-
-});
-// ========================================
-// PORTAL INCLUSIVO
-// script.js
-// ========================================
-
-
-"use strict";
-
-
-// -------------------------------
-// TAMANHO DA FONTE
-// -------------------------------
-
-
-let tamanhoFonte = 100;
-
-
-
-
-// -------------------------------
-// AUMENTAR FONTE
-// -------------------------------
-
-
-function aumentarFonte() {
-
-
-   if (tamanhoFonte < 160) {
-
-
-       tamanhoFonte += 10;
-
-
-       document.documentElement.style.fontSize = tamanhoFonte + "%";
-
-
-   }
-
-
-}
-
-
-
-
-// -------------------------------
-// DIMINUIR FONTE
-// -------------------------------
-
-
-function diminuirFonte() {
-
-
-   if (tamanhoFonte > 70) {
-
-
-       tamanhoFonte -= 10;
-
-
-       document.documentElement.style.fontSize = tamanhoFonte + "%";
-
-
-   }
-
-
-}
-// -------------------------------
-// LEITOR DE TELA
-// -------------------------------
-
-
-const sintetizador = window.speechSynthesis;
-let falaAtual = null;
-
-
-
-
-// -------------------------------
-// LER PÁGINA
-// -------------------------------
-
-
-function lerPagina() {
-
-
-   sintetizador.cancel();
-
-
-   const conteudo = document.querySelector("main");
-
-
-   if (!conteudo) return;
-
-
-   const texto = conteudo.innerText;
-
-
-   falaAtual = new SpeechSynthesisUtterance(texto);
-
-
-   falaAtual.lang = "pt-BR";
-   falaAtual.rate = 1;
-   falaAtual.pitch = 1;
-   falaAtual.volume = 1;
-
-
-   sintetizador.speak(falaAtual);
-
-
-}
-
-
-
-
-// -------------------------------
-// PARAR LEITURA
-// -------------------------------
-
-
-function pararLeitura() {
-
-
-   sintetizador.cancel();
-
-
-}
-
-
-// -------------------------------
-// ALTO CONTRASTE
-// -------------------------------
-
-
-function altoContraste() {
-
-
-   document.body.classList.toggle("altoContraste");
-
-
-}
-
-
-// -------------------------------
-// LER PÁGINA
-// -------------------------------
-
-
-function lerPagina() {
-
-
-   sintetizador.cancel();
-
-
-   const conteudo = document.querySelector("main");
-
-
-   if (!conteudo) return;
-
-
-   const texto = conteudo.innerText;
-
-
-   falaAtual = new SpeechSynthesisUtterance(texto);
-
-
-   falaAtual.lang = "pt-BR";
-   falaAtual.rate = 1;
-   falaAtual.pitch = 1;
-   falaAtual.volume = 1;
-
-
-   sintetizador.speak(falaAtual);
-
-
-}
-
-
-// -------------------------------
-// PARAR LEITURA
-// -------------------------------
-
-
-function pararLeitura() {
-
-
-   sintetizador.cancel();
-
-
-}
-// ========================================
-// FECHAR MENU AO CLICAR (CELULAR)
-// ========================================
-
-
-document.addEventListener("DOMContentLoaded", function () {
-
-
-   const links = document.querySelectorAll(".nav-link");
-   const menu = document.getElementById("menuPrincipal");
-
-
-   links.forEach(function (link) {
-
-
-       link.addEventListener("click", function () {
-
-
-           if (menu && menu.classList.contains("show")) {
-
-
-               const bsCollapse = bootstrap.Collapse.getInstance(menu)
-                   || new bootstrap.Collapse(menu, {
-                       toggle: false
-                   });
-
-
-               bsCollapse.hide();
-
-
-           }
-
-
-       });
-
-
-   });
-
-
-});
-
-
-// ========================================
-// MENSAGEM DE BOAS-VINDAS
-// ========================================
-
-
-window.addEventListener("load", function () {
-
-
-   console.log("Portal Inclusivo carregado com sucesso.");
-
-
-});
-
-
-// ========================================
-// ATALHOS DO TECLADO
-// ========================================
-
-
-document.addEventListener("keydown", function (e) {
-
-
-   // ALT + =
-   // (em muitos teclados o "+" é ALT + =)
-
-
-   if (e.altKey && (e.key === "+" || e.key === "=")) {
-
-
-       e.preventDefault();
-       aumentarFonte();
-
-
-   }
-
-
-   // ALT + -
-
-
-   if (e.altKey && e.key === "-") {
-
-
-       e.preventDefault();
-       diminuirFonte();
-
-
-   }
-
-
-   // ALT + C
-
-
-   if (e.altKey && e.key.toLowerCase() === "c") {
-
-
-       e.preventDefault();
-       altoContraste();
-
-
-   }
-
-
-   // ALT + L
-
-
-   if (e.altKey && e.key.toLowerCase() === "l") {
-
-
-       e.preventDefault();
-       lerPagina();
-
-
-   }
-
-
-   // ESC
-
-
-   if (e.key === "Escape") {
-
-
-       pararLeitura();
-
-
-   }
-
-
-});
+    }
+);
+```
