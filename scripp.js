@@ -254,7 +254,3 @@ function carregarConfiguracoes() {
     }
 
 }
-
-
-// Executar quando a página carregar
-document.addEventListener("DOMContentLoaded", carregarConfiguracoes);
